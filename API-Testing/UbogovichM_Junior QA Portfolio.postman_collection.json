@@ -1,0 +1,585 @@
+{
+	"info": {
+		"_postman_id": "df98624c-6eba-453e-9be0-fb186206c61b",
+		"name": "Junior QA Portfolio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51232109",
+		"_collection_link": "https://m-ubogovich-2406394.postman.co/workspace/%D0%9C%D0%B0%D1%80%D0%B8%D1%8F-%D0%A3%D0%B1%D0%BE%D0%B3%D0%BE%D0%B2%D0%B8%D1%87's-Workspace~0ef2a874-4ed7-47c0-888c-d4adb7095d7f/collection/51232109-df98624c-6eba-453e-9be0-fb186206c61b?action=share&source=collection_link&creator=51232109"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Users list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a post by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/posts/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Negative test : user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Victor update\",\r\n    \"username\": \"Fart update\",\r\n    \"email\": \"VictorFart1243@ex.com\",\r\n    \"address\": {\r\n        \"street\": \"Updated Street\",\r\n        \"suite\": \"100\",\r\n        \"city\": \"Minsk\",\r\n        \"zipcode\": \"278000\",\r\n        \"geo\": {\r\n            \"lat\": \"93.90\",\r\n            \"lng\": \"27.56\"\r\n        }\r\n    },\r\n    \"phone\": \"+375-29-560-6723\",\r\n    \"website\": \"qa-portfolio.io\",\r\n    \"company\": {\r\n        \"name\": \"QA Jun\",\r\n        \"catchPhrase\": \"Qa\",\r\n        \"bs\": \"test\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/123",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"123"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Negative test : user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Victor update\",\r\n    \"username\": \"Fart update\",\r\n    \"email\": \"VictorFart1243@ex.com\",\r\n    \"address\": {\r\n        \"street\": \"Updated Street\",\r\n        \"suite\": \"100\",\r\n        \"city\": \"Minsk\",\r\n        \"zipcode\": \"278000\",\r\n        \"geo\": {\r\n            \"lat\": \"93.90\",\r\n            \"lng\": \"27.56\"\r\n        }\r\n    },\r\n    \"phone\": \"+375-29-560-6723\",\r\n    \"website\": \"qa-portfolio.io\",\r\n    \"company\": {\r\n        \"name\": \"QA Jun\",\r\n        \"catchPhrase\": \"Qa\",\r\n        \"bs\": \"test\"\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/users/123",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"123"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jan 2026 13:25:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=43200"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+								},
+								{
+									"key": "expires",
+									"value": "-1"
+								},
+								{
+									"key": "nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "report-to",
+									"value": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=xFmb1y7RS6TqLqaaVFCNwrRB%2BHYFNT7NJBltJupk4hI%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1768137945\"}],\"max_age\":3600}"
+								},
+								{
+									"key": "reporting-endpoints",
+									"value": "heroku-nel=\"https://nel.heroku.com/reports?s=xFmb1y7RS6TqLqaaVFCNwrRB%2BHYFNT7NJBltJupk4hI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1768137945\""
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "via",
+									"value": "2.0 heroku-router"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-ratelimit-limit",
+									"value": "1000"
+								},
+								{
+									"key": "x-ratelimit-remaining",
+									"value": "999"
+								},
+								{
+									"key": "x-ratelimit-reset",
+									"value": "1768137975"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "EXPIRED"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "9bc4bdef1ef41207-WAW"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Fart\",\r\n    \"Name\": \"Victor\",\r\n    \"email\": \"VictorFart123@ex.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Victor update\",\r\n    \"username\": \"Fart update\",\r\n    \"email\": \"VictorFart1243@ex.com\",\r\n    \"address\": {\r\n        \"street\": \"Updated Street\",\r\n        \"suite\": \"100\",\r\n        \"city\": \"Minsk\",\r\n        \"zipcode\": \"278000\",\r\n        \"geo\": {\r\n            \"lat\": \"93.90\",\r\n            \"lng\": \"27.56\"\r\n        }\r\n    },\r\n    \"phone\": \"+375-29-560-6723\",\r\n    \"website\": \"qa-portfolio.io\",\r\n    \"company\": {\r\n        \"name\": \"QA Jun\",\r\n        \"catchPhrase\": \"Qa\",\r\n        \"bs\": \"test\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PATCH",
+			"item": [
+				{
+					"name": "Update post title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Junior QA portfolio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/posts/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "Remove post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/posts/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CSV",
+			"item": [
+				{
+					"name": "Create Users CSV",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"firstName\": \"{{firstName}}\",\r\n    \"email\": \"{{email}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://jsonplaceholder.typicode.com/"
+		},
+		{
+			"key": "username",
+			"value": "Fart"
+		},
+		{
+			"key": "firstName",
+			"value": "Victor"
+		},
+		{
+			"key": "email",
+			"value": "VictorFart123@ex.com"
+		}
+	]
+}
